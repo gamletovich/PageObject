@@ -10,6 +10,7 @@ def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default="chrome",
                      help="Choose web browser: chrome or opera")
 
+
 @pytest.fixture(scope="function")
 def browser(request):
     language = request.config.getoption("language")
@@ -21,7 +22,8 @@ def browser(request):
         options = Options()
         options.add_experimental_option('prefs', {'intl.accept_languages': language})
 
-        browser = webdriver.Chrome("C:\\Users\\armen.boiadzhian\\Downloads\\Armen\Projects\\chromedriver.exe", options=options)
+        browser = webdriver.Chrome("C:\\Users\\armen.boiadzhian\\Downloads\\Armen\Projects\\chromedriver.exe",
+                                   options=options)
 
     elif browser_name == "opera":
         print("\nstart opera browser for test..")
