@@ -5,7 +5,8 @@ from pages.login_page import LoginPage
 import pytest
 
 
-@pytest.mark.skip(reason="not currently tested")
+@pytest.mark.need_review
+# @pytest.mark.skip(reason="not currently tested")
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
@@ -27,9 +28,6 @@ def test_guest_can_add_product_to_basket(browser, link):
     add_item.solve_quiz_and_get_code()
     add_item.check_item_name()
     add_item.check_item_price()
-
-
-# link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
 
 
 link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
@@ -63,6 +61,7 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.should_be_login_link()
 
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
@@ -70,6 +69,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page.should_be_login_link()
 
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket_page = BasketPage(browser, link)
     basket_page.open()
@@ -105,6 +105,7 @@ class TestLoginFromProductPage():
         add_item.open()
         add_item.should_not_be_success_message()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         page = MainPage(browser, link)
         page.open()
