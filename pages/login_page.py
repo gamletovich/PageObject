@@ -43,4 +43,9 @@ class LoginPage(BasePage):
         register_button.click()
 
         if self.is_element_present(*LoginPageLocators.EMAIL_ERROR):
-            self.register_new_user("A")  # adding in the en
+            self.register_new_user("A")  # adding in the start of e-mail letter A
+            # после ревью работ на другом ПК я не обнаружил неоюходимости в этом кусочке
+            # на моем рабочем ноутбуке каждый раз при прогоне второго теста из класса
+            # что мы создавали, возникало сообщение о том, что такой мейл уже есть
+            # хотя я использовал и время и фейк библиотеку, в итоге я решил проблему
+            # этим ифом. если у кого-то есть идеи, в чем проблема, просьба написать на имейл: z@fastlive.eu
