@@ -43,6 +43,4 @@ class LoginPage(BasePage):
         register_button.click()
 
         if self.is_element_present(*LoginPageLocators.EMAIL_ERROR):
-            self.register_new_user("A") # adding in the en
-
-
+            self.register_new_user("A")  # adding in the en
