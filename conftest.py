@@ -20,9 +20,8 @@ def browser(request):
         print("\nstart chrome browser for test..")
         options = Options()
         options.add_experimental_option('prefs', {'intl.accept_languages': language})
-
-        browser = webdriver.Chrome("C:\\Users\\armen.boiadzhian\\Downloads\\Armen\Projects\\chromedriver.exe",
-                                   options=options)
+        # "D:\\Apps\\Drivers\\chromedriver.exe" my path to chromedriver
+        browser = webdriver.Chrome(options=options)
 
     elif browser_name == "opera":
         print("\nstart opera browser for test..")
